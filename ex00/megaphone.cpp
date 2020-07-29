@@ -14,10 +14,9 @@ public:
 
 void Megaphone::capitalize_string(std::string str)
 {
-    for (unsigned long i = 0; i < str.length(); i++) {
+    for (unsigned long i = 0; i < str.length(); i++)
         if (str[i] >= 'a' && str[i] <= 'z')
-            str[i] = str[i] - ('a' - 'A');
-    }
+            str[i] ^= 0x20;
     this->output += str;
 }
 
