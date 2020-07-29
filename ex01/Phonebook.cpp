@@ -76,6 +76,7 @@ int main()
             phonebook.add_contact();
         if (cmd == "SEARCH") {
             phonebook.print_contact_list();
+            std::cout << "VIEW INDEX > ";
             std::cin >> cmd;
             cmd[0] &= 0xF;
             if (cmd[0] >= 0 && cmd[0] <= 7)
