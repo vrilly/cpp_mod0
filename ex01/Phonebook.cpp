@@ -19,7 +19,7 @@ void Phonebook::add_contact()
 void Phonebook::print_single_contact(int index)
 {
     const Contact *contact = contacts.get_contact(index);
-
+    // I could've used io manipulators but fuck it.
     std::cout << "         " << index << "|" <<
               truncate_string(contact->first_name) << "|" <<
               truncate_string(contact->last_name) << "|" <<
@@ -33,6 +33,7 @@ void Phonebook::print_contact_list()
         if (contacts.get_contact(i)->first_name.length())
             print_single_contact(i);
 }
+
 std::string Phonebook::truncate_string(std::string s)
 {
     std::string output;
