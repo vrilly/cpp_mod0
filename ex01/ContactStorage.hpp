@@ -6,8 +6,9 @@
 #include <string>
 #include <iostream>
 
-struct Contact
+class Contact
 {
+public: // Yes, i could've made a struct from this but the subject says class :)
 	std::string first_name;
 	std::string last_name;
 	std::string nickname;
@@ -21,13 +22,14 @@ struct Contact
 	std::string darkest_secret;
 
 	static Contact create_from_stdin();
+	void print_to_stdout() const;
 };
 
 class ContactStorage
 {
 	Contact contacts[8];
 public:
-	Contact * get_contact(int index, bool truncate = false);
+	const Contact * get_contact(int index);
 	void set_contact(int index, Contact contact);
 };
 

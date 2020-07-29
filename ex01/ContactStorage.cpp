@@ -1,11 +1,14 @@
 // Created by Tom Jans on 28-07-20.
 #include "ContactStorage.hpp"
 
+#include <utility>
+
 void ContactStorage::set_contact(int index, Contact contact)
 {
+    contacts[index] = contact;
 }
 
-Contact * ContactStorage::get_contact(int index, bool truncate)
+const Contact * ContactStorage::get_contact(int index)
 {
 	return &this->contacts[index];
 }
@@ -38,4 +41,19 @@ Contact Contact::create_from_stdin()
 	std::cout << "DARKEST SECRET: ";
 	std::cin >> contact.darkest_secret;
 	return contact;
+}
+
+void Contact::print_to_stdout() const
+{
+    std::cout << "FIRST NAME: " << first_name << std::endl;
+    std::cout << "LAST NAME: " << last_name << std::endl;
+    std::cout << "NICKNAME: " << nickname << std::endl;
+    std::cout << "LOGIN: " << login << std::endl;
+    std::cout << "POSTAL ADDRESS: " << postal_address << std::endl;
+    std::cout << "EMAIL ADDRESS: " << email_address << std::endl;
+    std::cout << "PHONE NUMBER: " << phone_number << std::endl;
+    std::cout << "BIRTHDAY DATE: " << birthday_date << std::endl;
+    std::cout << "FAVORITE MEAL: " << favorite_meal << std::endl;
+    std::cout << "UNDERWEAR COLOR: " << underwear_color << std::endl;
+    std::cout << "DARKEST SECRET: " << darkest_secret << std::endl;
 }
